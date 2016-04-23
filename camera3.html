@@ -178,13 +178,15 @@
 
 	      	function sendImage(){
 		        var dataURL = document.getElementById('smallImage').src;
+				var lat = 	14.5595131;
+				var lon = 	121.01898359999998;
 		        console.log(dataURL + " " + dataURL.length);
 		        if(dataURL.length > 100){
 			        $.ajax({
 			          type: "POST",
 			          url: "http://iligtas.ph/FishSOS/addimage.php",
 			          dataType: "JSON",
-			          data: {imgBase64: dataURL},
+			          data: {imgBase64: dataURL, lat: lat, lon: lon},
 			          success: function() {console.log('saved');}
 			    	}).done (new $.nd2Toast({message : "Image Sent"}));
 			   	} else {
