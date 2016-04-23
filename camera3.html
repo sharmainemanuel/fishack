@@ -111,6 +111,13 @@
 			</div> -->
 
 			<img style="display:none;width:100%;height:auto" id="smallImage" src="" />
+			
+					<select id=div>
+				<option value="" style="display:none;" >report crime</option> 
+				<option value="dynamite" >Dynamite Fishing</option> 
+				<option value="marine" >Marine Life Violation</option> 
+				</select>
+				
   					
 			<div data-role="footer" data-position="fixed" style="text-align: center">
 				<a href="#" data-role="button" data-inline="true" onclick="capturePhoto();">Capture Photo</a> 
@@ -138,7 +145,7 @@
 	    <script>
 		
 		$(document).ready(function(){
-		alert(localStorage.getItem("lon"));
+		//alert(localStorage.getItem("lon"));
 	getLocation();  
 function getLocation() {
     if (navigator.geolocation) {
@@ -203,6 +210,8 @@ function showPosition(position) {
 	      	function sendImage(){
 			
 		        var dataURL = document.getElementById('smallImage').src;
+		        var crime = document.getElementById('div').value;
+				alert(crime);
 				var lat =localStorage.getItem("lat");
 				var lon =localStorage.getItem("lon");
 				alert(lon);
