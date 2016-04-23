@@ -1,0 +1,133 @@
+		.inner span{font-weight:bold;}
+body {
+background-image: url('../img/pagasa22.png');
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-attachment: fixed;
+
+  opacity: 0.5;
+    filter: Alpha(opacity=50);
+}
+.ui-page {
+    background: transparent;
+}.ui-content {
+    background: transparent;
+}
+	
+			#map-canvas {
+		      width: 100%;
+		      height: 100%;
+		    }
+		    .gm-style-iw {
+		      text-align: center;
+		    }
+
+#showDaily,#showDailyHome {margin-left:12%;}
+.forecast {margin-left:12%;padding-top:5%;}
+.wIcon{margin-left: -8px;}
+
+#tweecool ul {
+margin: 0;
+padding: 0;
+list-style: none;}
+
+.twitter-widget li {
+list-style: none;
+clear: both;}
+
+#tweecool li img, .twitter-widget li .tweets_txt {
+float: left;
+margin-bottom: 10px;
+margin-left: 5px;}
+
+#tweecool li img {
+-webkit-border-radius: 30px;
+-moz-border-radius: 30px;
+border-radius: 30px;}
+
+.twitter-widget li .tweets_txt {
+width: 350px;
+margin-left: 10px;}
+
+#tweecool li .tweets_txt span {
+font-style: italic;
+color: #666;
+display: block;}
+
+ul{
+list-style: none;
+margin: 0;
+padding: 0;}
+
+#tweecool ul li{
+margin: 10px 0;}
+
+.marquee {
+width: 450px;
+height: 2em;
+margin: 0 auto;
+overflow: hidden;
+white-space: nowrap;
+box-sizing: border-box;
+animation: marquee 50s linear infinite;}
+
+.marquee p{
+font-size: 2em;}
+
+.marquee:hover {
+animation-play-state: paused}
+
+/* Make it move */
+@keyframes marquee {
+0%   { text-indent: 27.5em }
+100% { text-indent: -105em }}
+
+/* Make it pretty */
+.microsoft {
+padding-left: 1.5em;
+position: relative;
+font: 16px 'Segoe UI', Tahoma, Helvetica, Sans-Serif;}
+
+/* ::before was :before before ::before was ::before - kthx */
+.microsoft:before, .microsoft::before {
+z-index: 2;
+content: '';
+position: absolute;
+top: -1em; left: -1em;
+width: 1em; height: 1em;
+background-image: url('images/speaker.png');}
+
+.microsoft:after, .microsoft::after {
+z-index: 1;
+content: '';
+position: absolute;
+top: 0; left: 0;
+width: 2em; height: 2em;
+/*background-image: linear-gradient(90deg, white 70%, rgba(255,255,255,0));*/
+background-image: url('images/speaker.png');
+background-size: 100% 100%;}
+
+/* Style the links */
+.vanity {
+color: #333;
+text-align: center;
+font: .75em 'Segoe UI', Tahoma, Helvetica, Sans-Serif;}
+
+.vanity a, .microsoft a {
+color: #1570A6;
+transition: color .5s;
+text-decoration: none;}
+
+.vanity a:hover, .microsoft a:hover {
+color: #F65314;}
+
+/* Style toggle button */
+.toggle {
+display: block;
+margin: 2em auto;}
+
+
+.loading{
+
+width:10%;opacity:0.5;margin-left:auto;margin-right:auto;display:block; position: relative;
+}

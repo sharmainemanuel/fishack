@@ -1,0 +1,243 @@
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Project AGAP</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="css/material-design-iconic-font.min.css" />
+		<meta http-equiv="Content-Security-Policy" 
+content="default-src *; 
+style-src * 'self' 'unsafe-inline' 'unsafe-eval'; 
+script-src * 'self' 'unsafe-inline' 'unsafe-eval';">
+		<link rel="stylesheet" href="css/jquery.mobile.min.css" />
+		<link rel="stylesheet" href="vendor/waves/waves.min.css" />
+		<link rel="stylesheet" href="vendor/wow/animate.css" />
+		<link rel="stylesheet" href="css/nativedroid2.css" />
+		<link rel="stylesheet" href="css/pagasa.css" />
+		<style>/* Prevent FOUC */body { opacity: 0; }</style>
+		<style type="text/css">
+			#showDaily,#showDailyHome {margin-left:12%;}
+			.forecast {margin-left:12%;padding-top:5%;}
+			.wIcon{margin-left: -24px;}</style>
+	</head>
+	<body >
+		<div data-role="page" class="nd2-no-menu-swipe" id="homepage">
+		<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
+			</div>
+
+			<div role="main" class="ui-content wow fadeIn" data-inset="false" data-wow-delay="0.2s">
+			<div data-role="nd2tab" data-tab="friends" data-swipe="true">	
+				<div class="nd2-card nd2-card card-media-right card-media-small clr-bg-cyan" >
+					
+				<iframe id="blockrandom" name="Philippine Standard Time" src="http://oras.pagasa.dost.gov.ph/widget.shtml" style="width:100%" height="95" scrolling="no" frameborder="0" class="wrapper">No Iframes</iframe>
+				</div>
+			<!-- <div class="nd2-card nd2-card card-media-right card-media-small clr-bg-cyan"  id="clockbox">
+			
+			</div> -->
+			<div id="demo"> </div>	
+				<img id="imgLoader" src="img/ballRing.gif" style="width:10%;opacity:0.5;margin-left:auto;margin-right:auto;display:block; position: relative;">
+		
+			<div class="nd2-card nd2-card card-media-right card-media-small clr-bg-cyan">	
+			
+					<div data-wow-delay='0.4s' id="showHome"></div>
+					<div data-wow-delay='1s' id="showDailyHome" class="row"></div>		
+				</div>
+	
+			<pre id="log"></pre>
+			<pre class="classList"></pre>
+			
+			</div>
+			
+			<div data-role="nd2tab" data-tab="work" data-swipe="true">
+					<div class="nd2-card card-media-right card-media-small">
+				<div >
+				
+					<div class="card-title has-avatar has-supporting-text">
+					
+						<img class="card-avatar" src="img/alert-circle.png">
+					
+						<h3 class="card-primary-title">Daily Forecast</h3>
+					
+						<h5 class="card-supporting-text"><div id="rss-feeds" style='text-align: justify;'></div></h5>
+					</div>
+				
+				</div>
+			</div>
+			
+			</div>
+			
+			<div data-role="popup" id="sharePopupDialog">
+
+                <div data-role="header">
+                	<h1 class='nd-title'><i class='zmdi zmdi-share'></i>&nbsp;SHARE</h1>
+            	</div>
+
+                <div data-role="content">
+                    
+                    <a href="http://www.facebook.com/sharer/sharer.php?u=http://www.pagasa.dost.gov.ph/index.php/general-weather/daily-weather-forecast&title=Weather"  data-role="button" data-inline="true" class="ui-btn " target="_blank"><i class='zmdi zmdi-facebook-box zmdi-hc-lg'></i> SHARE</a>
+					<a href="http://twitter.com/share?url=http://www.pagasa.dost.gov.ph/index.php/general-weather/daily-weather-forecast&title=Weather&text=Daily+Weather+%23PAGASA" title="Share on Twitter"  data-role="button" data-inline="true" class="ui-btn  " target="_blank"><i class='zmdi zmdi-twitter-box zmdi-hc-lg'></i> TWEET</a>
+					<a href="https://plus.google.com/share?url=http://www.pagasa.dost.gov.ph/index.php/general-weather/daily-weather-forecast&title=Weather&text=Daily+Weather+%23PAGASA" title="Share on Twitter"  data-role="button" data-inline="true" class="ui-btn  " target="_blank"><i class='zmdi zmdi-google-plus-box zmdi-hc-lg'></i> SHARE</a>
+                    <a href="dialog/index.html" data-rel="back" data-role="button" data-inline="true" class="ui-btn ui-btn-primary"><i class='zmdi zmdi-cancel'></i> Cancel</a>
+
+                </div>
+            </div>
+			
+			
+			
+		<a  href="#sharePopupDialog" data-rel="popup" data-position-to="window" data-transition="pop"
+							class="ui-btn
+							ui-btn-inline
+							ui-btn-fab
+							ui-btn-fab-bottom
+							ui-btn-raised
+							clr-primary"
+
+							>
+								<i class='zmdi zmdi-share zmdi-hc-2x'></i>
+				</a>	
+		
+		<!--  -->
+			
+		</div>
+		</div>
+	
+	
+<script src="cordova.js"></script>
+		
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script src="js/jquery.mobile.min.js"></script>
+		<script src="vendor/waves/waves.min.js"></script>
+		<script src="vendor/wow/wow.min.js"></script>
+		<script src="js/nativedroid2.js"></script>
+		<script src="nd2settings.js"></script>
+		<script src="js/tweecool.min.js"></script>
+		<script src="js/jquery.rss.js"></script>
+		<script src="js/moment.min.js"></script>
+		<script src="js/date.js"></script>
+		<script src="js/pagasa.js"></script>
+		
+		<!--<script type="text/javascript" src="phonegap.js"></script>-->
+
+        <script type="text/javascript" src="js/PushwooshAndroid.js"></script>
+        <script type="text/javascript" src="js/PushwooshiOS.js"></script>
+			<script type="text/javascript" src="js/PushwooshWP.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+
+	
+	<script>
+$(document).ready(function() {
+
+function Logger(id) {	
+  this.el = document.getElementById('log');
+}
+Logger.prototype.log = function(msg) {
+  var fragment = document.createDocumentFragment();
+  fragment.appendChild(document.createTextNode(msg));
+  fragment.appendChild(document.createElement('br'));
+  this.el.appendChild(fragment);
+};
+
+Logger.prototype.clear = function() {
+  this.el.textContent = '';
+};
+
+var logger = new Logger('log');
+
+function updateConnectionStatus(msg, connected) {
+  var el = document.querySelector('#connection');
+  if (connected) {
+    if (el.classList) {
+      el.classList.add('connected');
+      el.classList.remove('disconnected');
+    } else {
+      el.addClass('connected');
+      el.removeClass('disconnected');
+    }
+  } else {
+    if (el.classList) {
+      el.classList.remove('connected');
+      el.classList.add('disconnected');
+    } else {
+      el.removeClass('connected');
+      el.addClass('disconnected');
+    }
+  }
+  el.innerHTML = msg + '<div></div>';
+}
+
+window.addEventListener('load', function(e) {
+  if (navigator.onLine) {
+    updateConnectionStatus('', true);
+  } else {
+// var  msg =  updateConnectionStatus('No Internet Connection', false);
+  new $.nd2Toast({ 
+   message : "No Internet Connection", // Required
+   action : { // Optional (Defines the action button on the right)
+     title : "Try Again", // Title of the action button
+     fn : function() { // function that will be triggered when action clicked
+        //console.log("Action Button clicked'");
+		location.href="main2.html";
+     },
+     color : "red" // optional color of the button (default: 'lime')
+   },
+   ttl : 8000 // optional, time-to-live in ms (default: 3000)
+ });
+  }
+}, false);
+
+
+
+
+	$("#rss-feeds-date").rss("https://kidlat.pagasa.dost.gov.ph/prsdcodes/rss/forecast/forecast.xml", {
+	dateFormat: 'MMM Do YY, h:mm a',
+	    entryTemplate: '{date}',
+		effect: 'slideFastSynced',
+	        }).show();
+
+	$("#rss-feeds").rss("https://kidlat.pagasa.dost.gov.ph/prsdcodes/rss/forecast/forecast.xml", {
+	    entryTemplate: '{bodyPlain}',
+		effect: 'slideFastSynced',
+	        }).show();
+});
+	</script>
+
+	<script>
+	tday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+	tmonth=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+
+	function GetClock(){
+	var d=new Date();
+	var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear();
+	if(nyear<1000) nyear+=1900;
+	var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+
+	if(nhour==0){ap=" AM";nhour=12;}
+	else if(nhour<12){ap=" AM";}
+	else if(nhour==12){ap=" PM";}
+	else if(nhour>12){ap=" PM";nhour-=12;}
+
+	if(nmin<=9) nmin="0"+nmin;
+	if(nsec<=9) nsec="0"+nsec;
+
+	
+
+	document.getElementById('clockbox').innerHTML="<div class='card-media'>	</div>"+"<div class='card-title has-supporting-text'><span>PHILIPPINE STANDARD TIME</span><h3 class='card-primary-title'>"+nhour+":"+nmin+":"+nsec+ap+"</h3>"+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+"</div>";
+	}
+
+	window.onload=function(){
+	GetClock();
+	setInterval(GetClock,1000);
+	}
+
+	</script>
+
+
+
+	</body>
+</html>

@@ -1,0 +1,149 @@
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Project AGAP</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.min.css" />
+		<link rel="stylesheet" href="vendor/waves/waves.min.css" />
+		<link rel="stylesheet" href="vendor/wow/animate.css" />
+		<link rel="stylesheet" href="css/nativedroid2.css" />
+		<link rel="stylesheet" href="css/pagasa.css" />
+		<style>/* Prevent FOUC */body { opacity: 0; }</style>
+		<style type="text/css">
+		body {background-image: url('img/loading.png');}
+			#showDaily,#showDailyHome {margin-left:12%;}
+			.forecast {margin-left:12%;padding-top:5%;}
+			.wIcon{margin-left: -8px;}
+		</style>
+
+	</head>
+	<body >
+
+		<div data-role="page" id="weathermap">
+	<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>PAGASA</strong>
+									<span class='subline'>"Tracking the sky</span>
+									<span class='subline'>Helping the country"</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul data-role="listview" data-inset="false"></ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>General Weather</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="main2.html#homepage" data-ajax='false' data-icon="false">Daily</a></li>
+						<li><a href="keycities.html#keycities" data-ajax='false' data-icon="false">Key Cities</a></li>
+						<li><a href="tourist.html#tourist" data-ajax='false' data-icon="false">Tourist</a></li>
+						<li><a href="local.html#local"  data-ajax='false'>Local Cities</a></li>
+						<li><a href="asian.html#asian" data-ajax='false'>Asian Cities</a></li>
+						<li><a href="shipping.html#asian" data-ajax='false'>Shipping</a></li>
+						<li><a href="weekly.html#weekly"  data-ajax='false'>Weekly Outlook</a></li>	
+					</ul>
+				</div>
+				<ul data-role="listview" data-inset="false"></ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Flood Information</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="flood_advisories.html" data-ajax='false'>Advisories</a></li>
+						<li><a href="flood_bulletin.html"  data-ajax='false'>Bulletin</a></li>
+						<li><a href="flood_status.html"  data-ajax='false'>Dam Status</a></li>
+					</ul>
+				</div>
+				<ul data-role="listview" data-inset="false"></ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Warnings and Advisories</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="warnings_thunderstorms.html" data-ajax='false'>Thunderstorms Warning</a></li>
+						<li><a href="warnings_rainfall.html" data-ajax='false'>Rainfall Warning </a></li>
+						<li><a href="warnings_gale.html" data-ajax='false'>Gale Warning</a></li>
+						<li><a href="warnings_special.html" data-ajax='false'>Special Weather Forecast</a></li>
+						<li><a href="warnings_advisories.html" data-ajax='false'>Weather Advisories</a></li>
+					</ul>
+				</div>
+				<ul data-role="listview" data-inset="false"></ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+							<h3>Tropical Cyclone Warnings</h3>
+							<ul data-role="listview" data-icon="false">
+								<li><a href="weatherbulletin.html" data-ajax='false'>Weather Bulletin</a></li>
+								<li><a href="track.html" data-ajax='false'>Tropical Cyclone Track</a></li>
+								<li><a href="hourlyupdate.html"  data-ajax='false'> Hourly Update</a></li>
+							<li><a href="warnings_shipping.html"  data-ajax='false'>International for Shipping</a></li>
+								</ul>
+				</div>
+				<ul data-role="listview" data-inset="false"></ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Radar and Satellite</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="weathermap.html#weathermap" data-ajax='false'>Weather Map</a></li>
+						<li><a href="satellite.html#satellite" data-ajax='false'>Satellite</a></li>
+						<li><a href="radar.html#radar"  data-ajax='false'>Radar</a></li>
+					</ul>
+				</div>
+				<ul data-role="listview" data-inset="false"></ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Social</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="facebook.html" data-ajax='false'>Facebook</a></li>	
+						<li><a href="twitter.html#twitter" data-ajax='false'>Twitter</a></li>				
+						<li><a href="podcast4.html#podcast" data-ajax='false'>Podcast</a></li>						
+					</ul>
+				</div>
+				
+		<ul data-role="listview" data-inset="false"></ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3>Real Time Weather</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="userlocation_cyclone.html" data-ajax='false'>User Location for Tropical Cyclone</a></li>						
+						<li><a href="userlocation_weather.html" data-ajax='false'>User Location for Weather</a></li>						
+						<li><a href="camera3.html" data-ajax='false'>Capture Image</a></li>						
+					
+					</ul>
+				</div
+			</div>
+				<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>Key Cities</h1>
+			</div>
+				<div role="main" class="ui-content" data-inset="false">
+			</div> 	
+		</div>
+	
+		<div id="map-canvas"></div>
+	
+
+
+
+	
+		<script src="cordova.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script src="js/jquery.mobile.min.js"></script>
+		<script src="vendor/waves/waves.min.js"></script>
+		<script src="vendor/wow/wow.min.js"></script>
+		<script src="js/nativedroid2.js"></script>
+		<script src="nd2settings.js"></script>
+
+		<script src="js/jquery.rss.js"></script>
+		<script src="js/moment.min.js"></script>
+		
+
+		<script src="js/mapstyle.js"></script>
+		<script src="js/keycities.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB44Gmr9WifMvvaGnbANgU0JMKcRECm7nM&callback=initMap"></script>
+	</body>
+
+</html>

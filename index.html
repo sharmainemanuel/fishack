@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/themes/listo-theme.min.css" />
+  <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+  <link rel="stylesheet" href="css/themes/jquery.mobile.structure-1.4.5.min.css" />
+  <script src="js/jquery.min.js"></script> 
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+  setTimeout(function() {
+    if(localStorage.getItem("dataemail") == null || localStorage.getItem("dataemail") == "")
+    {
+    setTimeout(function(){
+      $('#gcccsLoader').fadeOut();
+      $('#imgLoader').fadeOut();
+      location.href="camera3.html";
+        }, 1000);   
+    }
+    else
+    {
+    setTimeout(function(){
+      
+      $('#gcccsLoader').fadeOut();
+      $('#imgLoader').fadeOut();
+      location.href="main2.html";
+        }, 1000);
+    }
+    }, 1000);
+  </script>
+  <script>
+  
+  function init() {
+    document.addEventListener("deviceready", initPushwoosh, true);
+ 
+    //rest of the code
+}
+  function initPushwoosh()
+{
+    var pushNotification = cordova.require("com.pushwoosh.plugins.pushwoosh.PushNotification");
+ 
+    //set push notifications handler
+    document.addEventListener('push-notification', function(event) {
+        var title = event.notification.title;
+        var userData = event.notification.userdata;
+                                 
+        if(typeof(userData) != "undefined") {
+            console.warn('user data: ' + JSON.stringify(userData));
+        }
+                                     
+        alert(title);
+    });
+ 
+    //initialize Pushwoosh with projectid: "GOOGLE_PROJECT_ID", pw_appid : "PUSHWOOSH_APP_ID". This will trigger all pending push notifications on start.
+    pushNotification.onDeviceReady({ projectid: "auspicious-crow-95806", pw_appid : "6F454-5923E" });
+ 
+    //register for pushes
+    pushNotification.registerDevice(
+        function(status) {
+            var pushToken = status;
+            console.warn('push token: ' + pushToken);
+        },
+        function(status) {
+            console.warn(JSON.stringify(['failed to register ', status]));
+        }
+    );
+}
+  
+  
+  </script>
+  
+   <title>PAGASA</title>
+   
+  <style>
+.outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: 10px;
+    margin-right: auto; 
+    width: 100%;
+}
+  </style>
+</head>
+  
+  <body onload="init();" >
+  <div data-role="page" id="indexPage" data-theme="a">
+  <div data-role="content" >
+    
+      <img src="splash/splash.png" style="top: 30px; width:90%;margin-left:auto;margin-right:auto;display:block; position: relative;"><br/>
+      <br/>
+      <img id="imgLoader" src="img/ballRing.gif" style="width:15%;opacity:0.5;margin-left:auto;margin-right:auto;display:block; position: relative;">
+          
+        
+  </div>
+  </div>
+  
+  
+  </body>
+</html>
