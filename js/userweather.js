@@ -3,7 +3,7 @@ var map;
 var radarOverlay;
 var imageBounds = {north: 0, south: 0, east: 0, west: 0};
 var vImageURL;
-var arrCityName=[]; arrWindStr=[], arrWindDir=[];
+var arrCityName=[]; arrCrime=[], arrWindDir=[];
 var arrIcon1=[], arrMin1=[], arrMax1=[];
 var arrIcon2=[], arrMin2=[], arrMax2=[];
 var arrIcon3=[], arrMin3=[], arrMax3=[];
@@ -36,6 +36,7 @@ $(document).ready(function()
           for(var i = 0; i < myData.length; i++){
 			  console.log(myData.length);
 			arrCityName.push(myData[i].image);
+			arrCrime.push(myData[i].crime);
 	
         }
 
@@ -80,17 +81,19 @@ function initialize(vLat, vLong, vZoom)
         url: "http://iligtas.ph/FishSOS/reports.php",
         async: false,
         success: function(myData){
+			
   for(i=0; i<myData.length; i++)
   {
+	  
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(myData[i].lat,myData[i].lon),
       map:map,
-      icon: arrIcon1[i]
+      icon: 'img/marker.png'
     });
 
     google.maps.event.addListener(marker, 'click', (function(marker, i){
     return function(){
-      var vLayout = "<img src='"+arrCityName[i]+"'>";
+      var vLayout = "<img src='"+arrCityName[i]+"' class='dataMap'><br>"+arrCrime[i]+"";
       infowindow.setContent(vLayout);
       infowindow.open(map, marker);
     }
