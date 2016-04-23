@@ -141,13 +141,23 @@
 	getLocation();  
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(sendImage);
+        navigator.geolocation.getCurrentPosition(showPosition);
 			console.log("get location");
     } else { 
         x.innerHTML = "please check your GPS.";
 		console.log("error in getting location");
     }
 }
+
+
+function showPosition(position) {
+//	var lat =position.coords.latitude ;
+//	var lon =position.coords.longitude ;
+	localStorage.setItem("lat", position.coords.latitude);
+	localStorage.setItem("lon", position.coords.longitude);
+	
+	}
+
 
 });	    
 
@@ -191,11 +201,11 @@ function getLocation() {
 		      alert('Failed because: ' + message);
 		    }
 
-	      	function sendImage(position){
+	      	function sendImage(){
 			
 		        var dataURL = document.getElementById('smallImage').src;
-			var lat =position.coords.latitude ;
-	var lon =position.coords.longitude ;
+				var lat =localStorage.getItem("lat");
+				var lon =localStorage.getItem("lon");
 		        console.log(dataURL + " " + dataURL.length);
 		        if(dataURL.length > 100){
 			        $.ajax({
