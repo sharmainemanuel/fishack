@@ -21,18 +21,15 @@ $(document).ready(function()
       
       $.ajax({
         type: "GET",
-        url: "http://m.weather.gov.ph/agaptest/keycities.php",
+        url: "http://m.weather.gov.ph/agaptest/	keycities.php",
         async: false,
         success: function(myData){
-          var vc = myData.result.data.length - 12;
           vDateIssued=myData.result.data[19].dateTime;
-
-          for(var i = 0; i<12; i++){
-          console.log(myData.result.data[i+vc].cityName)
-          arrCityName.push(myData.result.data[i+vc].cityName);
-          arrIcon.push("img/weather-icons/day" + myData.result.data[i+vc].icon+".png");
-          arrMinTemp.push(myData.result.data[i+vc].min+"&degC");
-          arrMaxTemp.push(myData.result.data[i+vc].max+"&degC");}
+          for(var i = 0; i + 18 < 30; i++){
+          arrCityName.push(myData.result.data[i+18].cityName);
+          arrIcon.push("img/weather-icons/day" + myData.result.data[i+18].icon+".png");
+          arrMinTemp.push(myData.result.data[i+18].min+"&degC");
+          arrMaxTemp.push(myData.result.data[i+18].max+"&degC");}
         }
       });
       google.maps.event.addDomListener(window, 'load',initialize(vLat, vLong, 6));
