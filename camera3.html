@@ -149,6 +149,8 @@ function getLocation() {
     }
 }
 
+});	    
+
   	var vImageSource;
 		    var pictureSource;  
 		    var destinationType;
@@ -190,11 +192,11 @@ function getLocation() {
 		    }
 
 	      	function sendImage(position){
+			
 		        var dataURL = document.getElementById('smallImage').src;
-				var lat =position.coords.latitude ;
-				var lon =position.coords.longitude ;
-				alert(lat);
-				console.log(dataURL + " " + dataURL.length);
+			var lat =position.coords.latitude ;
+	var lon =position.coords.longitude ;
+		        console.log(dataURL + " " + dataURL.length);
 		        if(dataURL.length > 100){
 			        $.ajax({
 			          type: "POST",
@@ -218,8 +220,6 @@ function getLocation() {
 					});
 			   	}     
 		    }
-			
-			});	    
 	    </script>
 
 	</body>
