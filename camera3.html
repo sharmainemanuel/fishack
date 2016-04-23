@@ -138,6 +138,7 @@
 	    <script>
 		
 		$(document).ready(function(){
+		alert(localStorage.getItem("lon"));
 	getLocation();  
 function getLocation() {
     if (navigator.geolocation) {
@@ -151,8 +152,6 @@ function getLocation() {
 
 
 function showPosition(position) {
-//	var lat =position.coords.latitude ;
-//	var lon =position.coords.longitude ;
 	localStorage.setItem("lat", position.coords.latitude);
 	localStorage.setItem("lon", position.coords.longitude);
 	
