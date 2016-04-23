@@ -206,6 +206,7 @@ function showPosition(position) {
 		        var dataURL = document.getElementById('smallImage').src;
 				var lat =localStorage.getItem("lat");
 				var lon =localStorage.getItem("lon");
+				alert(lon);
 		        console.log(dataURL + " " + dataURL.length);
 		        if(dataURL.length > 100){
 			        $.ajax({
@@ -214,7 +215,7 @@ function showPosition(position) {
 			          dataType: "JSON",
 			          data: {imgBase64: dataURL, lat: lat,lon: lon},
 			          success: function() {console.log('saved');}
-			    	}).done (new $.nd2Toast({message : "Image Sent"}));
+			    	}).done (new $.nd2Toast({message : "Image Sent"+lat}));
 			   	} else {
 			   		new $.nd2Toast({ 
 					message : "No Image to Send", // Required
