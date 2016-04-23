@@ -186,7 +186,7 @@
 			          type: "POST",
 			          url: "http://iligtas.ph/FishSOS/addimage.php",
 			          dataType: "JSON",
-			          data: {imgBase64: dataURL, lat: lat, lon: lon},
+			          data: {imgBase64: dataURL, lat: lat},
 			          success: function() {console.log('saved');}
 			    	}).done (new $.nd2Toast({message : "Image Sent"}));
 			   	} else {
