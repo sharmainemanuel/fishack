@@ -36,8 +36,7 @@ var links = [
   "url":"info.html",
    "bgcolor":"#00ACEE",
   "color":"#fffff",
-  "icon":"<img src='img/info_icon.png' width='100%' height='100%' />",
-  "target":"_blank"
+  "icon":"<img src='img/info_icon.png' width='100%' height='100%' />"
 }
 ]
 

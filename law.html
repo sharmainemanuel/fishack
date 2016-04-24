@@ -1,0 +1,489 @@
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Project AGAP</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="css/kc.fab.css">
+
+		<link rel="stylesheet" href="css/material-design-iconic-font.min.css" />
+		
+		<link rel="stylesheet" href="css/jquery.mobile.min.css" />
+		<link rel="stylesheet" href="vendor/waves/waves.min.css" />
+		<link rel="stylesheet" href="vendor/wow/animate.css" />
+		<link rel="stylesheet" href="css/nativedroid2.css" />
+		<link rel="stylesheet" href="css/pagasa.css" />
+		<link rel="stylesheet" href="css/animate.min.css">
+		<style>/* Prevent FOUC */body { opacity: 0; }</style>
+		<style type="text/css">
+			#showDaily,#showDailyHome {margin-left:12%;}
+			.forecast {margin-left:12%;padding-top:5%;}
+			.wIcon{margin-left: -24px;}</style>
+			<script src="js/mapstyle.js"></script>
+			<script type="text/javascript" src="https://www.google.com/jsapi?.js"></script>
+		
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.10&sensor=false&.js"></script>
+	</head>
+	<body onload="initialize()">
+		<div data-role="page" class="nd2-no-menu-swipe" id="homepage">
+			<div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+				<div class='nd2-sidepanel-profile wow fadeInDown'>
+					<img class='profile-background' src="bg.jpg" />
+					<div class="row">
+						<div class='col-xs-4 center-xs'>
+							<div class='box'>
+								<img class="profile-thumbnail" src="icon.png" />
+							</div>
+						</div>
+						<div class='col-xs-8'>
+							<div class='box profile-text'>
+								<strong>MD.PH</strong>
+									<span class='subline'>"Give direction</span>
+									<span class='subline'>in saving lives"</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul data-role="listview" data-inset="false"></ul>
+				<div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3><i class="zmdi zmdi-favorite zmdi-hc-fw"></i> Blood</h3>
+					<ul data-role="listview" data-inset="false" data-icon="false">
+						<li><a href="blood_donation.html" data-ajax='false' data-icon="false">Blood Donation</a></li>
+						<li><a href="blood_request.html" data-ajax='false' data-icon="false">Blood Availability</a></li>
+					</ul>
+				</div>
+				<ul data-role="listview" data-inset="false"></ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+					<h3><i class='zmdi zmdi-account-box-phone  zmdi-hc-fw'></i> Medical Practitioners</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="md_search.html" data-ajax='false'>Search MD</a></li>
+						<li><a href="md_reserve.html"  data-ajax='false'>Reserve Appointment</a></li>
+					</ul>
+				</div>
+				<ul data-role="listview" data-inset="false"></ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+				<h3><i class='zmdi zmdi-local-hospital zmdi-hc-fw'></i>Hospital/Health Center</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="hospital_location.html" data-ajax='false'>Location</a></li>
+						<li><a href="hospital_specialization.html" data-ajax='false'>Specialization Profile</a></li>
+					</ul>
+				</div>
+				<ul data-role="listview" data-inset="false"></ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+				<h3><i class='zmdi zmdi-case zmdi-hc-fw'></i>Medicine</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="medicine_list.html" data-ajax='false'>List of Generic</a></li>
+						<li><a href="medicine_store.html" data-ajax='false'>Drugstore Location</a></li>
+					</ul>
+				</div>
+				<ul data-role="listview" data-inset="false"></ul>
+				<div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+				<h3><i class='zmdi zmdi-local-wc  zmdi-hc-fw'></i>Epidemiology</h3>
+					<ul data-role="listview" data-icon="false">
+						<li><a href="epi_chart.html" data-ajax='false'>Disease Chart</a></li>
+						<li><a href="epi_map.html" data-ajax='false'>Disease Map</a></li>
+						<li><a href="epidemiology_mission.html"  data-ajax='false'>Medical Mission</a></li>
+					</ul>
+				</div>
+			</div>
+				<div data-role="header" data-position="fixed" class="wow fadeIn">
+					
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>MPA Information</h1>
+
+			
+			</div>
+
+			<div role="main" class="ui-content wow fadeIn" data-inset="false" data-wow-delay="0.2s">
+		
+	
+			
+			<div data-role="popup" id="sharePopupDialog">
+
+                
+
+                <div data-role="content">
+						<div class="ui-grid-a ui-responsive">
+							<div class="ui-block-a"><a href="#" class="ui-btn ui-shadow ui-corner-all">Grid A</a></div>
+							<div class="ui-block-b"><a href="#" class="ui-btn ui-shadow ui-corner-all">Grid A</a></div>
+						</div>
+						<div class="ui-grid-solo">
+							<div class="ui-block-a"><a href="#" class="ui-btn ui-shadow ui-corner-all">Grid Solo</a></div>
+						</div>
+
+                </div>
+            </div>
+			
+			<div class="kc_fab_wrapper" id="btnMenu">
+			</div>
+			
+			
+		<!--	
+		<a  href="#sharePopupDialog" data-rel="popup" data-position-to="window" data-transition="pop"
+							class="ui-btn
+							ui-btn-inline
+							ui-btn-fab
+							ui-btn-fab-bottom
+							ui-btn-raised
+							clr-primary"
+
+							>
+								<i class='zmdi zmdi-share zmdi-hc-2x'></i>
+				</a>-->	
+		
+		<!--  -->
+			
+		</div>
+		</div>
+	
+	
+<script src="cordova.js"></script>
+		
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script src="js/jquery.mobile.min.js"></script>
+		<script src="vendor/waves/waves.min.js"></script>
+		<script src="vendor/wow/wow.min.js"></script>
+		<script src="js/nativedroid2.js"></script>
+		<script src="nd2settings.js"></script>
+		<script src="js/tweecool.min.js"></script>
+		<script src="js/jquery.rss.js"></script>
+		<script src="js/moment.min.js"></script>
+		<script src="js/date.js"></script>
+		<script src="js/pagasa.js"></script>
+		
+		<!--<script type="text/javascript" src="phonegap.js"></script>-->
+
+        <script type="text/javascript" src="js/PushwooshAndroid.js"></script>
+        <script type="text/javascript" src="js/PushwooshiOS.js"></script>
+			<script type="text/javascript" src="js/PushwooshWP.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+
+		<script type="text/javascript" src="js/kc.fab.min.js"></script>
+	<script>
+	
+	
+
+
+
+$(document).ready(function() {
+
+var links = [
+{
+  "bgcolor":"#03A9F4",
+  "icon":"+"
+},
+{
+  "url":"http://plus.google.com",
+   "bgcolor":"#00ACEE",
+  "color":"#fffff",
+  "icon":"<img src='img/map_icon.png' width='100%' height='100%' />",
+  "target":"_blank"
+},
+{
+  "url":"http://www.facebook.com",
+  "bgcolor":"#00ACEE",
+  "color":"#fffff",
+  "icon":"<img src='img/report_icon.png' width='100%' height='100%' />",
+  "target":"_blank"
+},
+
+{
+  "url":"http://www.jqueryscript.net",
+   "bgcolor":"#00ACEE",
+  "color":"#fffff",
+  "icon":"<img src='img/gallery_icon.png' width='100%' height='100%' />",
+},
+{
+  "url":"http://www.facebook.com",
+   "bgcolor":"#00ACEE",
+  "color":"#fffff",
+  "icon":"<img src='img/fished_icon.png' width='100%' height='100%' />",
+  "target":"_blank"
+},
+{
+  "url":"http://www.facebook.com",
+   "bgcolor":"#00ACEE",
+  "color":"#fffff",
+  "icon":"<img src='img/info_icon.png' width='100%' height='100%' />",
+  "target":"_blank"
+}
+]
+
+$('.kc_fab_wrapper').kc_fab(links);
+
+});
+	</script>
+
+	
+
+	<div id="map_canvas" style="height:300px;"></div>
+	
+	<script type='text/javascript'>//<![CDATA[
+
+
+
+
+function initialize() {
+
+var locations = [
+        ["Sibuyan Island", 12.4128, 122.5599, 1, '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Sibuyan</b>a crescent-shaped island, the second largest in an archipelago comprising Romblon Province, Philippines. Located in the namesake Sibuyan Sea, it has an area of 445 square kilometres (172 sq mi). The island has two prominent peaks, Mount Guiting-Guiting with a height of 2,058 metres (6,752 ft) and Mount Nailog with a height of 789 metres (2,589 ft).</p>'+
+      '<p>Attribution: Sibuyan, <a href="https://en.wikipedia.org/wiki/Sibuyan_Island">'+
+      'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+      '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '</div>'], 
+        ["Torrijos Community", 13.3343, 122.0155, 2, '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Torrijos Community</b> is a third class municipality in the province of Marinduque, Philippines. According to the 2010 census, it has a population of 29,366 people</p>'+
+      '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/wiki/Torrijos,_Marinduque">'+
+      'https://en.wikipedia.org/wiki/Torrijos,_Marinduque</a> '+
+      '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '</div>'], 
+        ["Taal Volcano Natural Park", 14.0113, 120.9977, 3, '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Taal Volcano</b>is a complex volcano located on the island of Luzon in the Philippines.[1] It is the second most active volcano in the Philippines with 33 historical eruptions. All of these eruptions are concentrated on Volcano Island, an island near the middle of Taal Lake. The lake partially fills Taal Caldera, which was formed by prehistoric eruptions between 140,000 and 5,380 BP.[2] Viewed from Tagaytay Ridge, Taal Volcano and Lake presents one of the most picturesque and attractive views in the Philippines.</p>'+
+      '<p>Attribution: Taal Volcano, <a href="https://en.wikipedia.org/wiki/Taal_Volcano">'+
+      'https://en.wikipedia.org/wiki/Taal_Volcano</a> '+
+      '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '</div>'],
+        ["Tanion Strait", 10.3072, 123.4832, 4, '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Tanion Strait</b>lies between the islands of Negros and Cebu in the Philippines. The strait, which is about 161 km (100 miles) long, connects the Visayan Sea in the north to the Bohol Sea in the south. Its width varies from 5 to 27 kilometres (3 to 17 mi), with the narrowest point in the south.[1] In the north the strait is closed off by the Don Islands, the largest of which is Bantayan. The cities of Bais, Negros Oriental and Toledo, Cebu have deepwater port facilities. The Tañon Strait is known for whale‑ and dolphin‑watching, with tour boats operating from Bais City.</p>'+
+      '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+      'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+      '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '</div>'],
+        ["Siargao Reef", 9.8482, 126.0458, 5, '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+      'sandstone rock formation in the southern part of the '+
+      'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+      'south west of the nearest large town, Alice Springs; 450&#160;km '+
+      '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+      'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+      'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+      'Aboriginal people of the area. It has many springs, waterholes, '+
+      'rock caves and ancient paintings. Uluru is listed as a World '+
+      'Heritage Site.</p>'+
+      '<p>Attribution: Tanion Strait, <a href="https://en.wikipedia.org/wiki/Ta%C3%B1on_Strait">'+
+      'https://en.wikipedia.org/wiki/Ta%C3%B1on_Strait</a> '+
+      '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '</div>'],
+        ["Guiuan", 11.0352, 125.7245, 6, '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Guiuan</b>, (pronounced as Ghi-wan) is a second-class municipality in the province of Eastern Samar, Philippines. As of the 2010 census, it had a population of 47,037 people.</p>'+
+      '<p>Attribution: Guiuan, <a href="https://en.wikipedia.org/wiki/Guiuan,_Eastern_Samar">'+
+      'https://en.wikipedia.org/wiki/Guiuan,_Eastern_Samar</a> '+
+      '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '</div>'],
+        ["Lake Lanao", 7.8931, 124.2644, 7, '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Lake Lanao</b>, is a large lake in the Philippines, located in Lanao del Sur province in the country\'s southern island of Mindanao. With a surface area of 340 km2 (130 sq mi),[1] it is the largest lake in Mindanao, and the second largest lake in the Philippines and counted as one of the 15 ancient lakes in the world.</p>'+
+      '<p>Attribution: Lanao, <a href="https://en.wikipedia.org/wiki/Lake_Lanao">'+
+      'https://en.wikipedia.org/wiki/Lake_Lanao</a> '+
+      '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '</div>'],
+        ["Sarangani Bay", 5.9656, 125.1929, 8, '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Sarangani Bay</b>,  is a bay located on the southern tip of Mindanao in the Philippines. It opens up to the Celebes Sea on the Pacific Ocean. General Santos City, one of the Philippines most important cities and ports, is located at the head of the bay, making the bay one of the busiest and often the sight of shipping accidents.[1] The province of Sarangani, created in 1992, is named after the bay.</p>'+
+      '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/wiki/Sarangani_Bay">'+
+      'https://en.wikipedia.org/wiki/Sarangani_Bay</a> '+
+      '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '</div>'],
+        ["Malampaya Sound", 10.8177, 119.4995, 9, '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Malampaya Sound</b>,  is a protected inlet of the South China Sea on the northwestern coast of Palawan Island in western Philippines. It is a geographic sound consisting of a complex of sheltered bays, coves, estuaries and islands separated from the sea to the west by the Copoas Peninsula. The sound is within the municipality of Taytay and is an important feature for the ecology and economy of the province of Palawan. It is considered one of the finest natural harbors in the Philippines and one of Palawan\'s richest fishing grounds.</p>'+
+      '<p>Attribution: Malampaya Sound, <a href="https://en.wikipedia.org/wiki/Malampaya_Sound">'+
+      'https://en.wikipedia.org/wiki/Malampaya_Sound</a> '+
+      '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '</div>'],  
+        ["Batanes", 20.4485, 121.9708, 10, '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Batanes</b>, is an archipelago province in the Philippines situated in the Cagayan Valley region. It is the northernmost province in the country, and also the smallest, both in population and land area. Its capital is Basco located in the island of Batan.</p>'+
+      '<p>Attribution: Batanes, <a href="https://en.wikipedia.org/wiki/Batanes">'+
+      'https://en.wikipedia.org/wiki/Batanes</a> '+
+      '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '</div>'],
+        ["Mount Mantalingajan", 8.8183, 117.6750, 11, '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Mount Mantalingajan</b>,  is a mountain in southern Palawan, Philippines, that forms the highest part of the Mount Beaufort Ultramafics geological region, a series of ultramafic outcrops of Eocene origin, of which Mount Victoria forms the largest contiguous land area. The peak of the mountain is the highest point on Palawan.</p>'+
+      '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/wiki/Mount_Mantalingajan">'+
+      'https://en.wikipedia.org/wiki/Mount_Mantalingajan</a> '+
+      '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '</div>'],  
+        ["Olongapo City", 14.882156, 120.2759178, 12, '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Olongapo</b>,and often referred to as Olongapo City, is a highly urbanized city in the Philippines. Located in the province of Zambales but governed independently from the province, it has a population of 221,178 people according to the 2010 census.[4] Along with the town/municipality of Subic, it comprises Metro Olongapo, one of the twelve metropolitan areas in the Philippines</p>'+
+      '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/wiki/Olongapo">'+
+      'https://en.wikipedia.org/wiki/Olongapo</a> '+
+      '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '</div>'],
+        ["Baguio City", 16.3995547, 120.5537555, 13, '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Baguio</b>, officially the City of Baguio (Ibaloi: Ciudad ni Bagiw; Ilocano: Ciudad ti Baguio; Pangasinan: Siyudad na Baguio; Spanish: Ciudad de Baguio; Tagalog: Lungsod ng Baguio) and often referred to as Baguio City, is a highly urbanized city in northern Luzon in the Philippines. It is geographically within Benguet, serving as the provincial capital from 1901 to 1916,[3] but has since been administered independently from the province following its conversion into a chartered city. The city has become the center of business, commerce, and education in northern Luzon, as well as the seat of government of the Cordillera Administrative Region.[4] According to the 2010 census, Baguio has a population of 318,676.</p>'+
+      '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+      'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+      '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '</div>'],
+        ["Laoag City", 18.1981728, 120.5276349, 14, '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Laoag</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Laoag</b>,  is a third-class[4] city and capital of the province of Ilocos Norte in the Philippines.[2] The northernmost city in the nation, it is the province\'s political, commercial, and industrial hub and the location of the Ilocos region\'s only commercial airport. According to the 2010 census, it had a population of 104,904 people</p>'+
+      '<p>Attribution: Laoag, <a href="https://en.wikipedia.org/wiki/Laoag">'+
+      'https://en.wikipedia.org/wiki/Laoag</a> '+
+      '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '</div>'],
+        ["Tuguegarao City", 17.6022296, 121.6894235, 15, '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Tuguegarao</b>, is a 3rd-class city and capital of the province of Cagayan in the Philippines.[2] It is the regional and institutional center of Cagayan Valley region.</p>'+
+      '<p>Attribution: Tuguegarao, <a href="https://en.wikipedia.org/wiki/Tuguegarao">'+
+      'https://en.wikipedia.org/wiki/Tuguegarao</a> '+
+      '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '</div>'],
+        ["Metro Manila", 14.5655922, 120.8845468, 16, '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Metro Manila</b>, the National Capital Region (NCR) of the Philippines, is the seat of government and the most populous region of the country which is composed of Manila, the capital city of the country, Quezon City, the country\'s most populous city, the Municipality of Pateros, and the cities of Caloocan, Las Piñas, Makati, Malabon, Mandaluyong, Marikina, Muntinlupa, Navotas, Parañaque, Pasay, Pasig, San Juan, Taguig, and Valenzuela.</p>'+
+      '<p>Attribution: Metro Manila, <a href="https://en.wikipedia.org/wiki/Metro_Manila">'+
+      'https://en.wikipedia.org/wiki/Metro_Manila</a> '+
+      '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '</div>']
+    ];
+
+document.getElementById('map_canvas').style.width="100%";
+    document.getElementById('map_canvas').style.height="100%"; //scrheight + "px";
+	
+	var myMapStyle = setMyMapStyle();
+  var mapReference = new google.maps.StyledMapType(myMapStyle, {name: "Styled Map"});
+  
+  
+
+    var mapOptions = {
+	
+      center: new google.maps.LatLng(12.330240,122.231560),
+      zoom: 6,
+      //mapTypeId: google.maps.MapTypeId.HYBRID,
+      disableDefaultUI: true,
+      mapTypeControlOptions: {
+            mapTypeIds: [google.maps.MapTypeId.ROADMAP, "map_style"]}
+    };
+	
+	
+  
+    
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        mapOptions);
+		map.mapTypes.set("map_style", mapReference);
+  map.setMapTypeId("map_style");
+	
+	
+	
+	
+	
+
+    //var infowindow = new google.maps.InfoWindow();
+	
+	
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) { 
+		var infowindow = new google.maps.InfoWindow({
+    content: locations[i][4]
+  });
+  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map,
+		animation: google.maps.Animation.BOUNCE,
+		icon: "img/law_pin.png"
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          //infowindow.setContent(locations[i][0], locations[i][6]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+	
+	
+
+		
+	  
+ } 
+
+ 
+//]]> 
+
+</script>
+
+	</body>
+</html>
