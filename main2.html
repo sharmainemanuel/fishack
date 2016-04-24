@@ -168,12 +168,17 @@ document.getElementById('map_canvas').style.width="100%";
 	*/
 	var marker, i;
 
-    for (i = 0; i < locations.length; i++) {  
+    for (i = 0; i < locations.length; i++) { 
+var icon = 	"img/fishsos_pin.png";
+
+	if (locations[i][0] == 'Metro Manila'){
+	 icon = 	"img/user_icon.png";
+	}
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
         map: map,
 		animation: google.maps.Animation.BOUNCE,
-		icon: "img/fishsos_pin.png"
+		icon: icon
       });
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
