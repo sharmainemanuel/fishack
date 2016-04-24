@@ -20,7 +20,7 @@
 	<body >
 		<div data-role="page" id="camera">
 				<div data-role="header" data-position="fixed" class="wow fadeIn">
-					<h1 class="wow fadeIn" data-wow-delay='0.4s'>Gallery</h1>
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>Report</h1>
 				</div>
 			
 					<img style="display:none;width:100%;height:auto" id="smallImage" src="" />
@@ -130,6 +130,7 @@ function showPosition(position) {
 				//alert(crime);
 				var lat =localStorage.getItem("lat");
 				var lon =localStorage.getItem("lon");
+			//	alert(lon);
 		        console.log(dataURL + " " + dataURL.length);
 		        if(dataURL.length > 100){
 			        $.ajax({
@@ -138,11 +139,9 @@ function showPosition(position) {
 			          dataType: "JSON",
 			          data: {imgBase64: dataURL, lat: lat,lon: lon,crime: crime},
 			          success: function() {console.log('saved');
-					
+					  location.href="gallery.html";
 					  }
 			    	}).done (new $.nd2Toast({message : "Image Sent"}));
-					
-					  location.href="gallery.html";
 			   	} else {
 			   		new $.nd2Toast({ 
 					message : "No Image to Send", // Required
