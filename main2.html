@@ -4,107 +4,53 @@
 	<head>
 		<title>Project AGAP</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="css/kc.fab.css">
 		<link rel="stylesheet" href="css/material-design-iconic-font.min.css" />
-		<meta http-equiv="Content-Security-Policy" 
-content="default-src *; 
-style-src * 'self' 'unsafe-inline' 'unsafe-eval'; 
-script-src * 'self' 'unsafe-inline' 'unsafe-eval';">
 		<link rel="stylesheet" href="css/jquery.mobile.min.css" />
 		<link rel="stylesheet" href="vendor/waves/waves.min.css" />
 		<link rel="stylesheet" href="vendor/wow/animate.css" />
 		<link rel="stylesheet" href="css/nativedroid2.css" />
 		<link rel="stylesheet" href="css/pagasa.css" />
+		<link rel="stylesheet" href="css/animate.min.css">
 		<style>/* Prevent FOUC */body { opacity: 0; }</style>
 		<style type="text/css">
 			#showDaily,#showDailyHome {margin-left:12%;}
 			.forecast {margin-left:12%;padding-top:5%;}
 			.wIcon{margin-left: -24px;}</style>
+			<script src="js/mapstyle.js"></script>
+			<script type="text/javascript" src="https://www.google.com/jsapi?.js"></script>
+		
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.10&sensor=false&.js"></script>
 	</head>
-	<body >
+	<body onload="initialize()">
 		<div data-role="page" class="nd2-no-menu-swipe" id="homepage">
-		<div data-role="header" data-position="fixed" class="wow fadeIn">
-					<h1 class="wow fadeIn" data-wow-delay='0.4s'>PAGASA</h1>
-			</div>
+				<div data-role="header" data-position="fixed" class="wow fadeIn">
+					<h1 class="wow fadeIn" data-wow-delay='0.4s'>fishSOS</h1>
+				</div>
 
 			<div role="main" class="ui-content wow fadeIn" data-inset="false" data-wow-delay="0.2s">
-			<div data-role="nd2tab" data-tab="friends" data-swipe="true">	
-				<div class="nd2-card nd2-card card-media-right card-media-small clr-bg-cyan" >
-					
-				<iframe id="blockrandom" name="Philippine Standard Time" src="http://oras.pagasa.dost.gov.ph/widget.shtml" style="width:100%" height="95" scrolling="no" frameborder="0" class="wrapper">No Iframes</iframe>
-				</div>
-			<!-- <div class="nd2-card nd2-card card-media-right card-media-small clr-bg-cyan"  id="clockbox">
-			
-			</div> -->
-			<div id="demo"> </div>	
-				<img id="imgLoader" src="img/ballRing.gif" style="width:10%;opacity:0.5;margin-left:auto;margin-right:auto;display:block; position: relative;">
-		
-			<div class="nd2-card nd2-card card-media-right card-media-small clr-bg-cyan">	
-			
-					<div data-wow-delay='0.4s' id="showHome"></div>
-					<div data-wow-delay='1s' id="showDailyHome" class="row"></div>		
-				</div>
-	
-			<pre id="log"></pre>
-			<pre class="classList"></pre>
-			
-			</div>
-			
-			<div data-role="nd2tab" data-tab="work" data-swipe="true">
-					<div class="nd2-card card-media-right card-media-small">
-				<div >
-				
-					<div class="card-title has-avatar has-supporting-text">
-					
-						<img class="card-avatar" src="img/alert-circle.png">
-					
-						<h3 class="card-primary-title">Daily Forecast</h3>
-					
-						<h5 class="card-supporting-text"><div id="rss-feeds" style='text-align: justify;'></div></h5>
-					</div>
-				
-				</div>
-			</div>
-			
-			</div>
-			
 			<div data-role="popup" id="sharePopupDialog">
 
-                <div data-role="header">
-                	<h1 class='nd-title'><i class='zmdi zmdi-share'></i>&nbsp;SHARE</h1>
-            	</div>
-
                 <div data-role="content">
-                    
-                    <a href="http://www.facebook.com/sharer/sharer.php?u=http://www.pagasa.dost.gov.ph/index.php/general-weather/daily-weather-forecast&title=Weather"  data-role="button" data-inline="true" class="ui-btn " target="_blank"><i class='zmdi zmdi-facebook-box zmdi-hc-lg'></i> SHARE</a>
-					<a href="http://twitter.com/share?url=http://www.pagasa.dost.gov.ph/index.php/general-weather/daily-weather-forecast&title=Weather&text=Daily+Weather+%23PAGASA" title="Share on Twitter"  data-role="button" data-inline="true" class="ui-btn  " target="_blank"><i class='zmdi zmdi-twitter-box zmdi-hc-lg'></i> TWEET</a>
-					<a href="https://plus.google.com/share?url=http://www.pagasa.dost.gov.ph/index.php/general-weather/daily-weather-forecast&title=Weather&text=Daily+Weather+%23PAGASA" title="Share on Twitter"  data-role="button" data-inline="true" class="ui-btn  " target="_blank"><i class='zmdi zmdi-google-plus-box zmdi-hc-lg'></i> SHARE</a>
-                    <a href="dialog/index.html" data-rel="back" data-role="button" data-inline="true" class="ui-btn ui-btn-primary"><i class='zmdi zmdi-cancel'></i> Cancel</a>
-
+						<div class="ui-grid-a ui-responsive">
+							<div class="ui-block-a"><a href="#" class="ui-btn ui-shadow ui-corner-all">Grid A</a></div>
+							<div class="ui-block-b"><a href="#" class="ui-btn ui-shadow ui-corner-all">Grid A</a></div>
+						</div>
+						<div class="ui-grid-solo">
+							<div class="ui-block-a"><a href="#" class="ui-btn ui-shadow ui-corner-all">Grid Solo</a></div>
+						</div>
                 </div>
             </div>
 			
+			<div class="kc_fab_wrapper" id="btnMenu"></div>
 			
-			
-		<a  href="#sharePopupDialog" data-rel="popup" data-position-to="window" data-transition="pop"
-							class="ui-btn
-							ui-btn-inline
-							ui-btn-fab
-							ui-btn-fab-bottom
-							ui-btn-raised
-							clr-primary"
 
-							>
-								<i class='zmdi zmdi-share zmdi-hc-2x'></i>
-				</a>	
-		
-		<!--  -->
 			
 		</div>
 		</div>
 	
 	
 <script src="cordova.js"></script>
-		
 		<script src="js/jquery.min.js"></script>
 		<script src="js/jquery-ui.min.js"></script>
 		<script src="js/jquery.mobile.min.js"></script>
@@ -117,127 +63,399 @@ script-src * 'self' 'unsafe-inline' 'unsafe-eval';">
 		<script src="js/moment.min.js"></script>
 		<script src="js/date.js"></script>
 		<script src="js/pagasa.js"></script>
-		
-		<!--<script type="text/javascript" src="phonegap.js"></script>-->
-
         <script type="text/javascript" src="js/PushwooshAndroid.js"></script>
         <script type="text/javascript" src="js/PushwooshiOS.js"></script>
 			<script type="text/javascript" src="js/PushwooshWP.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        
         <script type="text/javascript">
             app.initialize();
         </script>
+		<script type="text/javascript" src="js/kc.fab.min.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
 
-	
-	<script>
-$(document).ready(function() {
-
-function Logger(id) {	
-  this.el = document.getElementById('log');
-}
-Logger.prototype.log = function(msg) {
-  var fragment = document.createDocumentFragment();
-  fragment.appendChild(document.createTextNode(msg));
-  fragment.appendChild(document.createElement('br'));
-  this.el.appendChild(fragment);
-};
-
-Logger.prototype.clear = function() {
-  this.el.textContent = '';
-};
-
-var logger = new Logger('log');
-
-function updateConnectionStatus(msg, connected) {
-  var el = document.querySelector('#connection');
-  if (connected) {
-    if (el.classList) {
-      el.classList.add('connected');
-      el.classList.remove('disconnected');
-    } else {
-      el.addClass('connected');
-      el.removeClass('disconnected');
-    }
-  } else {
-    if (el.classList) {
-      el.classList.remove('connected');
-      el.classList.add('disconnected');
-    } else {
-      el.removeClass('connected');
-      el.addClass('disconnected');
-    }
-  }
-  el.innerHTML = msg + '<div></div>';
-}
-
-window.addEventListener('load', function(e) {
-  if (navigator.onLine) {
-    updateConnectionStatus('', true);
-  } else {
-// var  msg =  updateConnectionStatus('No Internet Connection', false);
-  new $.nd2Toast({ 
-   message : "No Internet Connection", // Required
-   action : { // Optional (Defines the action button on the right)
-     title : "Try Again", // Title of the action button
-     fn : function() { // function that will be triggered when action clicked
-        //console.log("Action Button clicked'");
-		location.href="main2.html";
-     },
-     color : "red" // optional color of the button (default: 'lime')
-   },
-   ttl : 8000 // optional, time-to-live in ms (default: 3000)
- });
-  }
-}, false);
-
-
-
-
-	$("#rss-feeds-date").rss("https://kidlat.pagasa.dost.gov.ph/prsdcodes/rss/forecast/forecast.xml", {
-	dateFormat: 'MMM Do YY, h:mm a',
-	    entryTemplate: '{date}',
-		effect: 'slideFastSynced',
-	        }).show();
-
-	$("#rss-feeds").rss("https://kidlat.pagasa.dost.gov.ph/prsdcodes/rss/forecast/forecast.xml", {
-	    entryTemplate: '{bodyPlain}',
-		effect: 'slideFastSynced',
-	        }).show();
-});
-	</script>
-
-	<script>
-	tday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
-	tmonth=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
-
-	function GetClock(){
-	var d=new Date();
-	var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getYear();
-	if(nyear<1000) nyear+=1900;
-	var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
-
-	if(nhour==0){ap=" AM";nhour=12;}
-	else if(nhour<12){ap=" AM";}
-	else if(nhour==12){ap=" PM";}
-	else if(nhour>12){ap=" PM";nhour-=12;}
-
-	if(nmin<=9) nmin="0"+nmin;
-	if(nsec<=9) nsec="0"+nsec;
 
 	
 
-	document.getElementById('clockbox').innerHTML="<div class='card-media'>	</div>"+"<div class='card-title has-supporting-text'><span>PHILIPPINE STANDARD TIME</span><h3 class='card-primary-title'>"+nhour+":"+nmin+":"+nsec+ap+"</h3>"+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+"</div>";
+	<div id="map_canvas" style="height:300px;"></div>
+	
+	<script type='text/javascript'>//<![CDATA[
+
+function drawChart(marker) {
+		
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Mushrooms', 3],
+          ['Onions', 1],
+          ['Olives', 1],
+          ['Zucchini', 1],
+          ['Pepperoni', 2]
+        ]);
+
+        // Set chart options
+        var options = {'title':'Pizza sold @ '+
+                               marker.getPosition().toString(),
+                       'width':400,
+                       'height':150};
+                       
+        var node        = document.createElement('div'),
+            infoWindow  = new google.maps.InfoWindow(),
+            chart       = new google.visualization.PieChart(node);
+            
+            chart.draw(data, options);
+            infoWindow.setContent(node);
+            infoWindow.open(marker.getMap(),marker);
+      }
+
+
+function initialize() {
+
+var locations = [
+        ["Sibuyan Island", 12.4128, 122.5599], 
+        ["Torrijos Community", 13.3343, 122.0155], 
+        ["Taal Volcano Natural Park", 14.0113, 120.9977],
+        ["Tanion Strait", 10.3072, 123.4832],
+        ["Siargao Reef", 9.8482, 126.0458],
+        ["Guiuan", 11.0352, 125.7245],
+        ["Lake Lanao", 7.8931, 124.2644],
+        ["Sarangani Bay", 5.9656, 125.1929],
+        ["Malampaya Sound", 10.8177, 119.4995],  
+        ["Batanes", 20.4485, 121.9708],
+        ["Mt. Matalingahan", 8.8183, 117.6750],  
+        ["Olongapo City", 14.882156, 120.2759178],
+        ["Baguio City", 16.3995547, 120.5537555],
+        ["Laoag City", 18.1981728, 120.5276349],
+        ["Tuguegarao City", 17.6022296, 121.6894235],
+        ["Metro Manila", 14.5655922, 120.8845468]
+    ];
+
+document.getElementById('map_canvas').style.width="100%";
+    document.getElementById('map_canvas').style.height="100%"; //scrheight + "px";
+	
+	var myMapStyle = setMyMapStyle();
+  var mapReference = new google.maps.StyledMapType(myMapStyle, {name: "Styled Map"});
+
+    var mapOptions = {
+	
+      center: new google.maps.LatLng(12.330240,122.231560),
+      zoom: 6,
+      //mapTypeId: google.maps.MapTypeId.HYBRID,
+      disableDefaultUI: true,
+      mapTypeControlOptions: {
+            mapTypeIds: [google.maps.MapTypeId.ROADMAP, "map_style"]}
+    };
+	
+	
+  
+    
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        mapOptions);
+		map.mapTypes.set("map_style", mapReference);
+  map.setMapTypeId("map_style");
+	var marker, i;	
+	/*
+    var marker1 = new google.maps.Marker({
+        position: mapOptions.center,
+        map: map
+    });
+    
+    google.maps.event.addListener(marker1, 'click', function() {
+      drawChart(this);
+    });
+	*/
+	var marker, i;
+
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map,
+		animation: google.maps.Animation.BOUNCE,
+		icon: "img/fishsos_pin.png"
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+		
+		var rand1 = Math.floor(Math.random() * 3) + 1;
+		var rand2 = Math.floor(Math.random() * 3) + 1;
+		var rand3 = Math.floor(Math.random() * 3) + 1;
+		var rand4 = Math.floor(Math.random() * 3) + 1;
+		var rand5 = Math.floor(Math.random() * 3) + 1;
+		
+        // Create the data table.
+		// old data
+		/*
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Mushrooms', rand1],
+          ['Onions', rand2],
+          ['Olives', rand3],
+          ['Zucchini', rand4],
+          ['Pepperoni', rand5]
+        ]);
+		*/
+		/*
+		var data = google.visualization.arrayToDataTable([
+         ['Month', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average'],
+         ['2004/05',  165,      938,         522,             998,           450,      614.6],
+         ['2005/06',  135,      1120,        599,             1268,          288,      682],
+         ['2006/07',  157,      1167,        587,             807,           397,      623],
+         ['2007/08',  139,      1110,        615,             968,           215,      609.4],
+         ['2008/09',  136,      691,         629,             1026,          366,      569.6]
+		]);
+		*/
+
+        // Set chart options
+		// old options
+		/*
+        var options = {'title':'Pizza sold @ '+
+                               locations[i][0],
+                       'width':400,
+                       'height':150};
+					   */
+		/*			   
+		var options = {
+		  title : 'Monthly Coffee Production by Country',
+		  //vAxis: {title: 'Cups'},
+		  hAxis: {title: 'Month'},
+		  seriesType: 'bars',
+		  series: {5: {type: 'line'}},
+			animation: {
+			  duration: 2000,
+			  easing: 'out',
+			  startup: true
+			}
+		};
+		*/
+	  var data = new google.visualization.DataTable();
+      data.addColumn('number', 'X');
+      data.addColumn('number', 'Deg');
+	  
+	  var temp1 = Math.floor(Math.random() * ((40-30)+1) + 30);
+      var temp2 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp3 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp4 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp5 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp6 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp7 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp8 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp9 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp10 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp11 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp12 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp13 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp14 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp15 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp16 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp17 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp18 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp19 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp20 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp21 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp22 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp23 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp24 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp25 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp26 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp27 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp28 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp29 = Math.floor(Math.random() * ((40-30)+1) + 30);
+	  var temp30 = Math.floor(Math.random() * ((40-30)+1) + 30);
+
+      data.addRows([
+        [0, 0],    [1, temp1],   [2, temp2],  [3, temp3],   [4, temp4],  [5, temp5],
+        [6, temp6],   [7, temp7],  [8, temp8],  [9, 40],  [10, 32], [11, 35],
+        [12, temp12], [13, temp13], [14, temp14], [15, temp15], [16, temp16], [17, temp17],
+        [18, temp18], [19, temp19], [20, temp20], [21, temp21], [22, temp22], [23, temp23],
+        [24, temp24], [25, temp25], [26, temp26], [27, temp27], [28, temp28], [29, temp29],
+        [30, temp25], [31, 40]
+      ]);
+
+      var options = {
+		'title':'CHART FOR '+ locations[i][0] ,
+        hAxis: {
+          title: 'DATE'
+        },
+        vAxis: {
+          title: 'WATER TEMPERATURE',
+		  viewWindow: {
+				min: 0,
+				max: 100
+			}
+        },
+        colors: ['#a52714', '#097138'],
+		animation: {
+			  duration: 2000,
+			  easing: 'out',
+			  startup: true
+			}
+      };
+	  
+	  //dissolved oxygen level
+	  var dataDO = new google.visualization.DataTable();
+      dataDO.addColumn('number', 'X');
+      dataDO.addColumn('number', 'DO');
+	  
+	  var temp1d = Math.floor(Math.random() * 10 + 1);
+      var temp2d = Math.floor(Math.random() * 10 + 1);
+	  var temp3d = Math.floor(Math.random() * 10 + 1);
+	  var temp4d = Math.floor(Math.random() * 10 + 1);
+	  var temp5d = Math.floor(Math.random() * 10 + 1);
+	  var temp6d = Math.floor(Math.random() * 10 + 1);
+	  var temp7d = Math.floor(Math.random() * 10 + 1);
+	  var temp8d = Math.floor(Math.random() * 10 + 1);
+	  var temp9d = Math.floor(Math.random() * 10 + 1);
+	  var temp10d = Math.floor(Math.random() * 10 + 1);
+	  var temp11d = Math.floor(Math.random() * 10 + 1);
+	  var temp12d = Math.floor(Math.random() * 10 + 1);
+	  var temp13d = Math.floor(Math.random() * 10 + 1);
+	  var temp14d = Math.floor(Math.random() * 10 + 1);
+	  var temp15d = Math.floor(Math.random() * 10 + 1);
+	  var temp16d = Math.floor(Math.random() * 10 + 1);
+	  var temp17d = Math.floor(Math.random() * 10 + 1);
+	  var temp18d = Math.floor(Math.random() * 10 + 1);
+	  var temp19d = Math.floor(Math.random() * 10 + 1);
+	  var temp20d = Math.floor(Math.random() * 10 + 1);
+	  var temp21d = Math.floor(Math.random() * 10 + 1);
+	  var temp22d = Math.floor(Math.random() * 10 + 1);
+	  var temp23d = Math.floor(Math.random() * 10 + 1);
+	  var temp24d = Math.floor(Math.random() * 10 + 1);
+	  var temp25d = Math.floor(Math.random() * 10 + 1);
+	  var temp26d = Math.floor(Math.random() * 10 + 1);
+	  var temp27d = Math.floor(Math.random() * 10 + 1);
+	  var temp28d = Math.floor(Math.random() * 10 + 1);
+	  var temp29d = Math.floor(Math.random() * 10 + 1);
+	  var temp30d = Math.floor(Math.random() * 10 + 1);
+
+      dataDO.addRows([
+        [0, 0],    [1, temp1d],   [2, temp2d],  [3, temp3d],   [4, temp4d],  [5, temp5d],
+        [6, temp6d],   [7, temp7d],  [8, temp8d],  [9, temp9d],  [10, temp10d], [11, temp11d],
+        [12, temp12d], [13, temp13d], [14, temp14d], [15, temp15d], [16, temp16d], [17, temp17d],
+        [18, temp18d], [19, temp19d], [20, temp20d], [21, temp21d], [22, temp22d], [23, temp23d],
+        [24, temp24d], [25, temp25d], [26, temp26d], [27, temp27d], [28, temp28d], [29, temp29d],
+        [30, temp25d], [31, 40]
+      ]);
+
+      var optionsDO = {
+		
+        hAxis: {
+          title: 'DATE'
+        },
+        vAxis: {
+          title: 'DISSOLVED oxygen',
+		  viewWindow: {
+				min: 0,
+				max: 10
+			}
+        },
+        colors: ['#a52714', '#097138'],
+		animation: {
+			  duration: 2000,
+			  easing: 'out',
+			  startup: true
+			}
+      };
+	  
+	  //gauge meter
+	  
+	  var randGM1 = Math.floor(Math.random() * ((100-30)+1) + 30);
+	  var randGM2 = Math.floor(Math.random() * ((100-30)+1) + 30);
+	  var randGM3 = Math.floor(Math.random() * ((100-30)+1) + 30);
+	  
+	  var dataGM = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+		  ['Dissolved O2', 0],
+          ['PH', 0],
+          ['AMMONIA', 0]
+        ]);
+
+        var optionsGM = {
+          width: 400, height: 120,
+          redFrom: 90, redTo: 100,
+          yellowFrom:75, yellowTo: 90,
+          minorTicks: 5,
+		  animation: {
+			  duration: 2000,
+			  easing: 'inAndOut'
+			  
+			}
+        };
+		
+                       
+        var node        = document.createElement('div'),
+			infoWindow  = new google.maps.InfoWindow(),
+			nodeDO		= document.createElement('div'),
+			parentDiv  = document.createElement('div'),
+			nodeGM = document.createElement('div'),
+            chart       = new google.visualization.LineChart(node),
+			
+			chartDO       = new google.visualization.LineChart(nodeDO),
+			chartGM       = new google.visualization.Gauge(nodeGM);
+            
+            chart.draw(data, options);
+			chartGM.draw(dataGM, optionsGM);
+			chartDO.draw(dataDO, optionsDO);
+		
+			
+			setInterval(function() {
+          var dataGM = google.visualization.arrayToDataTable([
+			  ['Label', 'Value'],
+			  ['Dissolved O2', randGM1],
+			  ['PH', randGM2],
+			  ['AMMONIA', randGM3]
+			]);
+          chartGM.draw(dataGM, optionsGM);
+        }, 500);
+		/*
+        setInterval(function() {
+          dataGM.setValue(1, 1, 40 + Math.round(60 * Math.random()));
+          chartGM.draw(dataGM, optionsGM);
+        }, 5000);
+        setInterval(function() {
+          dataGM.setValue(2, 1, 60 + Math.round(20 * Math.random()));
+          chartGM.draw(dataGM, optionsGM);
+        }, 15000);
+			
+		*/	
+			parentDiv.appendChild(node);
+			parentDiv.appendChild(nodeGM);
+			//parentDiv.appendChild(nodeDO);
+			
+            infoWindow.setContent(parentDiv);
+			
+			 if($('.gm-style-iw').length) {
+				$('.gm-style-iw').parent().remove();
+			}
+	
+            infoWindow.open(map,marker);
+			
+			
+			
+			
+      }
+	  
+	  
+      })(marker, i));
+	  
+	  
+      
 	}
+	
+	
 
-	window.onload=function(){
-	GetClock();
-	setInterval(GetClock,1000);
-	}
+		
+	  
+ } 
+google.load('visualization', '1.0', {'packages':['corechart', 'gauge']});
+ 
+//]]> 
 
-	</script>
-
-
+</script>
 
 	</body>
 </html>

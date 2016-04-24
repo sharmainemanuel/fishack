@@ -13,24 +13,22 @@
 		<link rel="stylesheet" href="css/pagasa.css" />
 		<style>/* Prevent FOUC */body { opacity: 0; }</style>
 		<style type="text/css">
+		body {background-image: url('splash/splash.png');}
 			#showDaily,#showDailyHome {margin-left:12%;}
 			.forecast {margin-left:12%;padding-top:5%;}
 			.wIcon{margin-left: -8px;}
-			.dataMap{width:50%;}
-			.iconMark{width:60px; height:60px;}
+				.dataMap{width:50%;}
 		</style>
 
 	</head>
 	<body >
 		<div data-role="page" id="weathermap">
-				<div data-role="header" data-position="fixed" class="wow fadeIn">
+	<div data-role="header" data-position="fixed" class="wow fadeIn">
 					<h1 class="wow fadeIn" data-wow-delay='0.4s'>fishSOS</h1>
 				</div>
-			<div data-role="main">
-			<div class="kc_fab_wrapper" id="btnMenu"></div>	
-			</div>
-				
-				
+			<div class="kc_fab_wrapper" id="btnMenu"></div>
+			
+
 		</div>
 			<div id="map-canvas"></div>
 	
@@ -49,64 +47,9 @@
 		<script src="js/userweather.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB44Gmr9WifMvvaGnbANgU0JMKcRECm7nM&callback=initMap"></script>
 
-		<script type='application/javascript' src='js/fastclick.js'></script>
-		<script type="text/javascript" src="js/kc.fab.min.js"></script>
-	<!--	<script type="text/javascript" src="js/menu.js"></script>-->
-	
-	<script>
-		
+				<script type="text/javascript" src="js/kc.fab.min.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
 
-$(document).ready(function() {
-
-var links = [
-{
-  "bgcolor":"#03A9F4",
-  "icon":"+"
-},
-{
-  "url":"main2.html",
-   "bgcolor":"#00ACEE",
-  "color":"#fffff",
-  "icon":"<img src='img/map_icon.png' width='100%' height='100%' />"
-},
-{
-  "url":"camera3.html",
-  "bgcolor":"#00ACEE",
-  "color":"#fffff",
-  "icon":"<img src='img/report_icon.png' width='100%' height='100%' />",
-},
-
-{
-  "url":"report.html",
-   "bgcolor":"#00ACEE",
-  "color":"#fffff",
-  "icon":"<img src='img/gallery_icon.png' width='100%' height='100%' />",
-},
-{
-  "url":"http://www.facebook.com",
-   "bgcolor":"#00ACEE",
-  "color":"#fffff",
-  "icon":"<img src='img/fished_icon.png' width='100%' height='100%' />",
-  "target":"_blank"
-},
-{
-  "url":"http://www.facebook.com",
-   "bgcolor":"#00ACEE",
-  "color":"#fffff",
-  "icon":"<img src='img/info_icon.png' width='100%' height='100%' />",
-  "target":"_blank"
-}
-]
-
-$('.kc_fab_wrapper').kc_fab(links);
-
-});
-	</script>
-		<script>
-			$(function() {
-    FastClick.attach(document.body);
-});
-		</script>
 
 	</body>
 </html>
