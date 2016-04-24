@@ -141,7 +141,11 @@ function showPosition(position) {
 			          success: function() {console.log('saved');
 					  location.href="gallery.html";
 					  }
-			    	}).done (new $.nd2Toast({message : "Image Sent"}));
+			    	}).done (
+					new $.nd2Toast({message : "Image Sent"});
+					location.href="gallery.html";
+					
+					);
 			   	} else {
 			   		new $.nd2Toast({ 
 					message : "No Image to Send", // Required
